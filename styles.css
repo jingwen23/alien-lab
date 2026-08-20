@@ -612,12 +612,15 @@
     --fs-lg:  clamp(1.0625rem,0.97rem + 0.4vw,   1.25rem);  /* ~17–20px : sub-headings, tile titles */
     --fs-xl:  clamp(1.125rem, 0.98rem + 0.7vw,   1.5rem);   /* ~18–24px : emphasis text, email link */
     --fs-2xl: clamp(1.5rem,   1.2rem + 1.4vw,    1.875rem); /* ~24–30px : stat numbers, card h3 */
+    --fs-2_5xl: clamp(1.75rem,  1.2rem + 1.8vw, 2.5rem);   /* ~28–40px : larger sub-headings, feature headings */
     --fs-3xl: clamp(2.125rem, 1.5rem + 2.8vw,    3.25rem);  /* ~34–52px : section headings */
     --fs-4xl: clamp(2.125rem, 1.4rem + 3.4vw,    3.625rem); /* ~34–58px : large section headings */
     --fs-5xl: clamp(2.5rem,   1.4rem + 5vw,      4.5rem);   /* ~40–72px : "We are" style headings */
     --fs-6xl: clamp(2.5rem,   1.1rem + 6.5vw,    5.25rem);  /* ~40–84px : contact headline */
     --fs-hero:clamp(3rem,     0.6rem + 10.5vw,   6.75rem);  /* ~48–108px: home hero */
     --fs-nav: clamp(1.875rem, 0.6rem + 5.8vw,    4rem);     /* ~30–64px : fullscreen nav links */
+
+    --yellow:#f9d423; /* numbered badges on the Resources page */
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html,body{height:100%;}
@@ -656,7 +659,8 @@
   }
   .logo .mascot{width:24px; height:24px;}
   .hamburger{
-    width:52px; height:52px; border-radius:12px; background:var(--ink); border:none;
+    width:52px; height:52px; border-radius:12px; 
+    background:var(--blue-deep); border:none;
     display:flex; align-items:center; justify-content:center; gap:4px; flex-direction:column;
     transition:transform .25s ease, background .25s ease;
   }
@@ -792,6 +796,15 @@
       "GRAD" 0,
       "ROND" 0;
     }
+
+
+    .tips-tricks{ 
+      font-size:var(--fs-3xl); 
+      line-height:1; 
+      margin-bottom:20px; 
+    }
+
+    .tips-tricks .accent{ color:var(--blue); }
 
   /* ================= WORK ================= */
   #work .work-head{
@@ -1016,7 +1029,7 @@
 
   /* ---------- fullscreen nav overlay ---------- */
   .nav-overlay{
-    position:fixed; inset:0; background:var(--ink); z-index:600;
+    position:fixed; inset:0; background:var(--blue-deep); z-index:600;
     display:flex; flex-direction:column; justify-content:center; padding:0 8vw;
     transform:translateY(-100%); transition:transform .5s cubic-bezier(.77,0,.18,1);
   }
@@ -1026,17 +1039,379 @@
   .nav-overlay .logo .mascot{ color:#f6a94a; }
   .nav-links{ display:flex; flex-direction:column; gap:6px; }
   .nav-links a{
-    font-family:'Archivo Black'; font-size:var(--fs-nav); color:#4a4f63;
-    display:flex; align-items:baseline; gap:18px; padding:10px 0; transition:color .25s ease;
+    font-family:'Index',sans-serif; 
+    font-weight: 500;
+    font-size:var(--fs-nav); 
+    font-weight: 700;
+    color:#69788E;
+    display:flex; 
+    align-items:baseline;
+    gap:18px; 
+    padding:10px 0; 
+    transition:color .25s ease;
+    letter-spacing: -1px;
   }
-  .nav-links a .idx{ font-family:'Space Mono'; font-size:var(--fs-base); color:var(--orange); width:34px; }
-  .nav-links a:hover, .nav-links a.current{ color:#fff; }
-  .nav-links a:hover .idx, .nav-links a.current .idx{ color:var(--orange); }
+  .nav-links a .idx{ 
+    font-family:'Index',sans-serif; 
+    font-size:var(--fs-lg); 
+    color:#D0D5DC; 
+    font-weight: 500;
+    width:34px; 
+    letter-spacing: -1px;
+  }
+  .nav-links a:hover, .nav-links a.current{ 
+    color:#E1EBF9; 
+  }
+  .nav-links a:hover .idx, .nav-links a.current .idx{ 
+    color:#F1A340; 
+  }
   .nav-foot{ margin-top:44px; display:flex; gap:26px; flex-wrap:wrap; }
   .nav-foot a{ font-family:'Space Mono'; font-size:var(--fs-xs); color:#9aa4c4; text-decoration:underline; text-underline-offset:3px; }
 
+  /* ================= RESOURCES PAGE ================= */
+  /* Panels inherit the base .panel's justify-content:center (defined
+     earlier in this file) so they vertically center like every other
+     page — no override needed here. */
+
+  /* -- lit review hero -- */
+  .res-hero-grid{
+    display:grid; grid-template-columns:1fr .95fr; gap:6vw; align-items:center;
+    max-width:1180px; margin:0 auto; width:100%;
+  }
+  .res-hero-grid h1{
+    font-size:var(--fs-4xl); line-height:1.05; margin-bottom:22px;
+  }
+  .res-hero-grid h1 .accent{ color:var(--blue); }
+  .res-hero-grid p{ 
+    color:black; 
+    font-size:var(--fs-md); 
+    line-height:1.4; 
+    max-width:46ch; 
+    font-family: "Google Sans Flex", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "slnt" 0,
+      "wdth" 100,
+      "GRAD" 0,
+      "ROND" 0;
+  }
+  .res-links-row{ display:flex; gap:32px; margin-top:26px; flex-wrap:wrap; }
+  .res-links-row a{ 
+    color:var(--blue); 
+    font-weight:600; 
+    font-size:var(--fs-sm); 
+    border-bottom:1px solid transparent; 
+    transition:border-color .2s ease; 
+    font-family: 'Inter', sans-serif;
+  }
+  .res-links-row a:hover{ border-color:var(--blue); }
+  .res-img-block{
+    width:100%; 
+    aspect-ratio:16/11; 
+    background:white; 
+    border-radius:10px;
+    background-image:
+      url('assets/lit-review-slide-cover.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+  }
+
+  /* -- small "Tips & Tricks" style label used for tips-1 / tips-2 -- */
+  .res-label-row{
+    display:flex; align-items:center; justify-content:center; gap:18px;
+    margin:0 auto 56px; max-width:1180px; width:100%;
+  }
+  .res-label-chip{ 
+    /* max-width: 50%;
+    height: auto; */
+    border-radius:4px; 
+    flex:none; 
+    background-image:
+      url('assets/tips-tricks-header.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+  }
+  .res-label-row h2{ font-size:var(--fs-3xl); }
+
+  /* -- large "[mascot] PsychoPy ..." brand heading used for the PsychoPy-specific panels -- */
+  .res-brand-heading{
+    display:flex; 
+    align-items:center; 
+    justify-content:center; 
+    margin:0 auto 48px; 
+    max-width:1180px; 
+    width:100%; 
+    text-align:center;
+    font-size:var(--fs-4xl);
+  }
+  .res-brand-heading img{ 
+    height:1.5em; 
+    width:auto; 
+    flex:none; 
+  }
+
+  .res-brand-heading .cute-stickers {
+    display: block;
+    margin: 0;
+}
+
+
+  .res-brand-heading 
+  .brand-word{ 
+    color:var(--blue); 
+    font-weight: 800;
+  }
+
+  .res-brand-heading h2 {
+    margin: 0;
+  }
+
+  /* -- numbered tip cards -- */
+  .res-tip-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:60px;
+    max-width:1180px; margin:0 auto; width:100%;
+  }
+  .res-tip-grid.single{ grid-template-columns:1fr; max-width:720px; }
+  .res-badge{
+    display:inline-flex; 
+    align-items:center; 
+    justify-content:center;
+    width:40px; 
+    height:40px; 
+    background:var(--yellow); 
+    border-radius:6px;
+    font-family:'Inter', sans-serif; 
+    font-size:var(--fs-xl); 
+    color:var(--ink);
+    margin-bottom:14px;
+    font-weight: 800;
+    padding: 2px;
+  }
+
+  .res-tip-card h3{ 
+    font-size:var(--fs-3xl); 
+    line-height:1.1; 
+    margin-bottom:14px; 
+    letter-spacing: -px;
+  }
+  .res-tip-card p{ 
+    color:black; 
+    font-size:var(--fs-md); 
+    line-height:1.4; 
+    font-family: "Google Sans Flex", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "slnt" 0,
+      "wdth" 100,
+      "GRAD" 0,
+      "ROND" 0;
+    }
+  
+  .res-tip-card ul{ 
+    margin:10px 0 0; 
+    padding-left:20px; 
+    color:black; 
+    font-size:var(--fs-md); 
+    line-height:1.4; 
+    font-family: "Google Sans Flex", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "slnt" 0,
+      "wdth" 100,
+      "GRAD" 0,
+      "ROND" 0;
+  }
+  .res-tip-card ul li{ margin-bottom:2px; }
+  .res-tip-card b{ 
+    color:#1a8039; 
+  }
+  .res-protip{ margin-top:16px; font-size:var(--fs-sm); color:var(--ink); }
+  .res-examples{ margin-top:18px; }
+  .res-examples .label{ 
+    font-size:var(--fs-sm); 
+    color:black; 
+    margin-bottom:8px; }
+  .res-examples code{
+    display:block; font-family:'Space Mono',monospace; font-size:var(--fs-xs);
+    color:#1c8348; background:var(--mist); padding:10px 14px; border-radius:8px;
+    margin-bottom:8px; overflow-x:auto; white-space:pre;
+  }
+
+
+  /* -- error messages / common fixes two-up layout -- */
+  .res-error-grid{
+    display:grid; 
+    grid-template-columns:1fr .95fr; 
+    gap:4vw; 
+    align-items:center;
+    max-width:1180px; 
+    margin:0 auto; 
+    width:100%;
+  }
+  .res-error-grid h3{ 
+    font-size:var(--fs-3xl); 
+    margin-bottom:20px; 
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.0;
+  }
+  .res-error-grid ul{ 
+    padding-left:20px; 
+    color:black; 
+    font-size:var(--fs-md); 
+    line-height:1.4; 
+    margin-bottom:16px; 
+    font-family: "Google Sans Flex", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "slnt" 0,
+      "wdth" 100,
+      "GRAD" 0,
+      "ROND" 0;
+    margin-bottom: 20px;
+  }
+  .res-error-grid p{ 
+    color:var(--ink); 
+    font-size:var(--fs-sm); 
+    line-height:1.4; 
+    font-family: "Google Sans Flex", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "slnt" 0,
+      "wdth" 100,
+      "GRAD" 0,
+      "ROND" 0;
+  }
+  .res-status-line{ 
+    font-size:var(--fs-sm); 
+    margin-top:4px; 
+  }
+
+  .res-error-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* vertical centering */
+    align-items: center;     /* horizontal centering */
+    gap: 50px;               /* space between images */
+}
+
+.res-error-img img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+  .res-single-col{ 
+    max-width:820px; 
+    margin:0 auto; 
+    width:100%; 
+  }
+  .res-single-col h3{ 
+    font-size:var(--fs-xl); 
+    margin-bottom:16px; 
+    font-family:'Space Mono',monospace; 
+  }
+  .res-single-col ul{ 
+    padding-left:20px; 
+    color:black; 
+    font-size:var(--fs-md); 
+    line-height:1.8; 
+    margin-bottom:18px; 
+    font-family: "Google Sans Flex", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "slnt" 0,
+      "wdth" 100,
+      "GRAD" 0,
+      "ROND" 0;
+  }
+  
+  .res-single-col p{ 
+    color:var(--ink); 
+    font-size:var(--fs-md); 
+    line-height:1.8; 
+    font-family: "Google Sans Flex", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "slnt" 0,
+      "wdth" 100,
+      "GRAD" 0,
+      "ROND" 0;
+  }
+  .res-single-col code{
+    font-family:'Space Mono',monospace; background:var(--mist); padding:1px 6px; border-radius:4px; font-size:.9em;
+  }
+
+  /* -- demo panel -- */
+  .res-demo-col{ 
+    max-width:720px; 
+    margin:0 auto; 
+    width:100%; 
+  }
+  .res-demo-col h3{ 
+    font-size:var(--fs-2_5xl); 
+    line-height:1.15; 
+    margin-bottom:20px; 
+    letter-spacing: -0.03em;
+  }
+  .res-demo-col ol{ 
+    padding-left:22px; 
+    color:var(--ink); 
+    font-size:var(--fs-sm); 
+    line-height:1.6;
+    margin-bottom:16px; 
+    font-family: "Google Sans Flex", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "slnt" 0,
+      "wdth" 100,
+      "GRAD" 0,
+      "ROND" 0;
+    }
+  .res-demo-col p{ 
+    color:var(--slate); 
+    font-size:var(--fs-sm); 
+    line-height:1.7; 
+    margin-bottom:22px; 
+    font-family: "Google Sans Flex", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "slnt" 0,
+      "wdth" 100,
+      "GRAD" 0,
+      "ROND" 0;
+  }
+
   /* ---------- responsive ---------- */
   @media (max-width:900px){
+    .res-hero-grid, .res-error-grid{ grid-template-columns:1fr; gap:32px; }
+    .res-hero-grid > div:first-child{ text-align:center; }
+    .res-hero-grid .res-links-row{ justify-content:center; }
+    .res-tip-grid{ grid-template-columns:1fr; gap:36px; }
+    .res-brand-heading, .res-label-row{ flex-wrap:wrap; }
+
     #we-are .grid, #why .grid, .contact-grid{ grid-template-columns:1fr; gap:36px; }
     #we-are .grid{ text-align:center; }
     .brain-graphic{ margin:0 auto; }
