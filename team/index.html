@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AliEN Lab — Team</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="stylesheet" href="/styles.css">
+</head>
+
+<body id="team-page">
+
+<header class="topbar">
+  <a href="/index.html" class="logo">
+    <img src="/assets/alien-lab-logo.png" class="brand-icon" viewBox="0 0 40 40" fill="none"></img>
+  </a>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<nav class="side-nav" id="sideNav">
+  <button class="dot-btn" data-target="team" aria-label="Go to Meet the Team"><span class="diamond"></span></button>
+  <button class="dot-btn" data-target="founding" aria-label="Go to Founding Parents"><span class="diamond"></span></button>
+  <button class="dot-btn" data-target="carousel" aria-label="Go to People Who Started the Lab"><span class="diamond"></span></button>
+  <button class="dot-btn" data-target="connect" aria-label="Go to Let's Connect"><span class="diamond"></span></button>
+</nav>
+
+<!--
+  Same nav-overlay markup/links as index.html and resources.html, kept
+  identical for consistency across pages. Note this inherits the same
+  pre-existing quirk flagged in index.html: "Our Story" and "Lab Life"
+  use data-target="why", which only resolves on index.html (there's no
+  #why section here or on resources.html), so on this page those two
+  links currently no-op just like they already do on resources.html.
+  Not something to silently "fix" from here — flagging so it's a
+  conscious site-wide decision, not a one-page patch.
+-->
+<div class="nav-overlay" id="navOverlay">
+  <div class="nav-top">
+    <a href="/index.html" class="logo"></a>
+    <button class="hamburger open" id="closeBtn" aria-label="Close menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-links">
+    <a href="/index.html"><span class="idx">01.</span>Home</a>
+    <a href="/story/"><span class="idx">02.</span>Our Story</a>
+    <a href="/team/"><span class="idx">03.</span>The People</a>
+    <a href="/resources/"><span class="idx">04.</span>Resources</a>
+    <a href="/lablife/"><span class="idx">05.</span>Lab Life</a>
+  </div>
+</div>
+
+<main id="scrollContainer">
+
+  <!-- 01 TEAM -->
+  <section class="panel" id="team">
+    <div class="team-head">
+      <h2 class="team-title display">Meet the brains<br><span class="accent">behind the lab.</span></h2>
+      <p class="team-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis</p>
+    </div>
+    <div class="person-grid">
+      <div class="person-card">
+        <img src="/assets/team-mah-sue-lynn.png" alt="Dr Mah Sue Lynn">
+        <h4>Dr Mah Sue Lynn</h4>
+        <span>Principal Investigator</span>
+      </div>
+      <div class="person-card">
+        <img src="/assets/team-lanz-leong.png" alt="Lanz Leong">
+        <h4>Lanz Leong</h4>
+        <span>Lab Manager</span>
+      </div>
+      <div class="person-card">
+        <img src="/assets/team-brian-chan.png" alt="Brian Chan Boon Kit">
+        <h4>Brian Chan Boon Kit</h4>
+        <span>Research Assistant (Writing)</span>
+      </div>
+    </div>
+    <a data-target="we-are" class="hero-cta scroll-link"><span class="chev">↓</span>More Members</a>
+  </section>
+
+  <!-- 02 FOUNDING PARENTS -->
+  <section class="panel" id="founding">
+    <div class="person-grid founding-grid">
+      <div class="person-card">
+        <img src="/assets/team-jerynn-lee.png" alt="Jerynn Lee">
+        <h4>Jerynn Lee Yi Lin</h4>
+        <span>Research Assistant (Admin)</span>
+      </div>
+      <div class="person-card">
+        <img src="/assets/team-mah-ming-jie.png" alt="Mah Ming Jie">
+        <h4>Mah Ming Jie</h4>
+        <span>Research Assistant (PsychoPy Tester)</span>
+      </div>
+      <div class="person-card">
+        <img src="/assets/team-ng-jing-wen.png" alt="Ng Jing Wen">
+        <h4>Ng Jing Wen</h4>
+        <span>Research Assistant (Programming)</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 CAROUSEL -->
+  <section class="panel" id="carousel">
+    <h2 class="carousel-heading display">The People Who<span class="accent"> Started the Lab</span></h2>
+    <div class="carousel-track">
+      
+      <div class="carousel-card">
+        <img src="/assets/team-kyle-lee.png" alt="Kyle Lee">
+        <a href="https://www.linkedin.com/in/kyleleekz/" class="carousel-card-link">Lee Kuang Zhe</a><br>
+        <span>Research Assistant (Programming)</span>
+      </div>
+      <div class="carousel-card">
+        <img src="/assets/team-ruby.png" alt="Ruby">
+        <a href="https://www.linkedin.com/in/loo-xin-loo/" class="carousel-card-link">Loo Xin Loo</a><br>
+        <span>Research Assistant (Data Extraction)</span>
+      </div>
+      <div class="carousel-card">
+        <img src="/assets/team-natalie.png" alt="Natalie">
+        <a href="" class="carousel-card-link">Natalie Tey Xue Yee</a><br>
+        <span>Research Assistant (PsychoPy Alpha Tester)</span>
+      </div>
+      <div class="carousel-card">
+        <img src="/assets/team-owen-yu.png" alt="Owen Yu">
+        <a href="https://www.linkedin.com/in/o-wen-yu-a0149a290/" class="carousel-card-link">Yu O-wen</a><br>
+        <span>Research Assistant (Writing)</span>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- 04 CONNECT -->
+  <section class="panel" id="connect">
+    <div class="connect-grid">
+      <div>
+        <h2 class="connect-title display">Let&rsquo;s Connect</h2>
+        <p class="connect-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in</p>
+      </div>
+      <div class="connect-info">
+        <div class="connect-row">
+          <span class="connect-label">Head of Lab</span>
+          <span class="connect-value">Dr Mah Sue Lynn</span>
+        </div>
+        <div class="connect-row">
+          <span class="connect-label">Email</span>
+          <a class="connect-value connect-link" href="mailto:suelynnm@sunway.edu.my">suelynnm@sunway.edu.my</a>
+        </div>
+        <div class="connect-row">
+          <span class="connect-label">Position</span>
+          <span class="connect-value">Lecturer at School of Psychology, Faculty of Medical Life Sciences, Sunway University</span>
+        </div>
+        <div class="connect-socials">
+            <a href="https://www.linkedin.com/in/sue-lynn-mah-6b7290153/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <img src="/assets/linkedin-logo.png" class="socials-logo" alt="LinkedIn">
+            </a>
+            <a href="https://x.com/suelynn_adr?s=11&t=H_PhTPOMSi1uNZMi7CwN3A" target="_blank" rel="noopener" aria-label="X">
+                <img src="/assets/x-logo.png" class="socials-logo" alt="X">
+            </a>
+            <a href="https://github.com/suelynnmah" target="_blank" rel="noopener" aria-label="Github">
+                <img src="/assets/github-logo.png" class="socials-logo" alt="Github">
+            </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer-note">
+    <span>&copy; 2026 ALiEN Lab, Dr Mah Sue Lynn.</span>
+    <span>All rights reserved.</span>
+  </div>
+
+</main>
+
+<script>
+(function(){
+  const container = document.getElementById('scrollContainer');
+  const panels = Array.from(document.querySelectorAll('section.panel'));
+  const dots = Array.from(document.querySelectorAll('.side-nav .dot-btn'));
+  const overlay = document.getElementById('navOverlay');
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const closeBtn = document.getElementById('closeBtn');
+  const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
+
+  function goTo(id){
+    const el = document.getElementById(id);
+    if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); }
+  }
+
+  dots.forEach(btn => btn.addEventListener('click', () => goTo(btn.dataset.target)));
+
+  // Same pattern as resources.html: only intercept nav-overlay links that
+  // point somewhere on THIS page (data-target). Plain hrefs to other pages
+  // are left alone so the browser navigates normally.
+  navLinks.forEach(a => a.addEventListener('click', (e) => {
+    if(a.dataset.target){
+      e.preventDefault();
+      goTo(a.dataset.target);
+      closeMenu();
+    }
+  }));
+
+  document.querySelectorAll('.scroll-link').forEach(a => a.addEventListener('click', (e) => {
+    e.preventDefault();
+    goTo(a.dataset.target);
+  }));
+
+  function openMenu(){
+    overlay.classList.add('open');
+    hamburgerBtn.classList.add('open');
+    hamburgerBtn.setAttribute('aria-expanded','true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu(){
+    overlay.classList.remove('open');
+    hamburgerBtn.classList.remove('open');
+    hamburgerBtn.setAttribute('aria-expanded','false');
+    document.body.style.overflow = '';
+  }
+  hamburgerBtn.addEventListener('click', () => {
+    overlay.classList.contains('open') ? closeMenu() : openMenu();
+  });
+  closeBtn.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeMenu(); });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const id = entry.target.id;
+        dots.forEach(d => d.classList.toggle('active', d.dataset.target === id));
+      }
+    });
+  }, { root: container, threshold: 0.6 });
+
+  panels.forEach(p => io.observe(p));
+})();
+</script>
+</body>
+</html>
