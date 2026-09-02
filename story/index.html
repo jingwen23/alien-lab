@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AliEN Lab — Our Story</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="stylesheet" href="/styles.css">
+</head>
+
+<body id="story-page">
+
+<header class="topbar">
+  <a href="/index.html" class="logo">
+    <img src="/assets/alien-lab-logo.png" class="brand-icon" viewBox="0 0 40 40" fill="none"></img>
+  </a>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<nav class="side-nav" id="sideNav">
+  <button class="dot-btn" data-target="how-started" aria-label="Go to How Did It Start"><span class="diamond"></span></button>
+  <button class="dot-btn" data-target="first-gen" aria-label="Go to 1st gen RAs"><span class="diamond"></span></button>
+  <button class="dot-btn" data-target="baby-ras" aria-label="Go to The Baby RAs"><span class="diamond"></span></button>
+  <button class="dot-btn" data-target="third-gen" aria-label="Go to Recruiting 3rd gen RAs"><span class="diamond"></span></button>
+</nav>
+
+<div class="nav-overlay" id="navOverlay">
+  <div class="nav-top">
+    <a href="/index.html" class="logo"></a>
+    <button class="hamburger open" id="closeBtn" aria-label="Close menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-links">
+    <a href="/index.html"><span class="idx">01.</span>Home</a>
+    <a href="/story/"><span class="idx">02.</span>Our Story</a>
+    <a href="/team/"><span class="idx">03.</span>The People</a>
+    <a href="/resources/"><span class="idx">04.</span>Resources</a>
+    <a href="/lablife/"><span class="idx">05.</span>Lab Life</a>
+  </div>
+</div>
+
+<main id="scrollContainer">
+
+  <!-- 01 HOW DID IT STARTED -->
+  <section class="panel" id="how-started">
+    <div class="story-hero-wrap">
+      <img src="/assets/story-founding-photo.png" alt="Dr Mah and the founding research assistants outside the School of Psychology noticeboard">
+      <div class="story-hero-content">
+        <h1 class="story-hero-title display">How Did It Started?</h1>
+        <p class="story-hero-date">On 21st July, 2025,</p>
+        <p class="story-hero-body">four enthusiastic students came knocking on Dr Mah&rsquo;s office door, seeking an opportunity to work as research assistants for her. Believing in her core values, Dr Mah decided to establish ALiEN Lab despite it being an informal lab.</p>
+        <p class="story-hero-body">She did not only want to provide her students with hands-on experience in real-world academic projects, but she also hoped that experimental psychology, her expertise, could be viewed as fun and engaging instead of procedural and rigorous.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 1ST GEN RAs -->
+  <section class="panel" id="first-gen">
+    <img src="/assets/story-1st-gen-banner.png" alt="The 1st generation research assistants together with lab collaborators" class="story-banner">
+    <h2 class="story-heading display">1st gen RAs</h2>
+    <p class="story-body">This core value was translated into multiple lab activities in 2025, including a lab tour and eye-tracker demonstration at University of Nottingham Malaysia, a PsychoPy workshop in Sunway University, and a visit to Map&uacute;a University, Philippines.</p>
+  </section>
+
+  <!-- 03 THE BABY RAs -->
+  <section class="panel" id="baby-ras">
+    <div class="story-split">
+      <img src="/assets/story-baby-ras.png" alt="The 2nd generation research assistants working together on a laptop" class="story-split-image">
+      <div>
+        <h2 class="story-split-heading display">The Baby RAs</h2>
+        <p class="story-split-body">During the beginning of 2026, five more bright young minds joined ALiEN lab to become the 2nd generation RAs.</p>
+        <p class="story-split-body">From sparking an AI project idea over a croissant and accepting a study on risky financial decisions by a beautiful mistake, to pursuing a cross-cultural language study spin-off and conducting a Schizotypy study as a graduation gift, our projects were always born with a free-flow mindset and delivered with a committed and passionate heart.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 RECRUITING 3RD GEN RAs -->
+  <section class="panel" id="third-gen">
+    <div class="story-split">
+      <img src="/assets/story-3rd-gen.png" alt="Illustration of a cloud over rolling green hills" class="story-split-image">
+      <div>
+        <h2 class="story-split-heading display">Recruiting 3rd gen RAs</h2>
+        <p class="story-split-body">As our first generation research assistants spread their wings to explore the world beyond academia, we have continued to honour our values when recruiting our third generation research assistants, specifically to work on our AI project.</p>
+        <p class="story-split-body">With a fun spirit, a strong faith in the next generation, and an unconditional dedication to go beyond the norms of experimental psychology, we strive to spread the love for psychology and cultivate more young talent in the road ahead.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer-note">
+    <span>&copy; 2026 ALiEN Lab, Dr Mah Sue Lynn.</span>
+    <span>All rights reserved.</span>
+  </div>
+
+</main>
+
+<script>
+(function(){
+  const container = document.getElementById('scrollContainer');
+  const panels = Array.from(document.querySelectorAll('section.panel'));
+  const dots = Array.from(document.querySelectorAll('.side-nav .dot-btn'));
+  const overlay = document.getElementById('navOverlay');
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const closeBtn = document.getElementById('closeBtn');
+  const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
+
+  function goTo(id){
+    const el = document.getElementById(id);
+    if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); }
+  }
+
+  dots.forEach(btn => btn.addEventListener('click', () => goTo(btn.dataset.target)));
+
+  // Only intercept nav-overlay links that point somewhere on THIS page
+  // (data-target). Plain hrefs to other pages are left alone so the
+  // browser navigates normally.
+  navLinks.forEach(a => a.addEventListener('click', (e) => {
+    if(a.dataset.target){
+      e.preventDefault();
+      goTo(a.dataset.target);
+      closeMenu();
+    }
+  }));
+
+  document.querySelectorAll('.scroll-link').forEach(a => a.addEventListener('click', (e) => {
+    e.preventDefault();
+    goTo(a.dataset.target);
+  }));
+
+  function openMenu(){
+    overlay.classList.add('open');
+    hamburgerBtn.classList.add('open');
+    hamburgerBtn.setAttribute('aria-expanded','true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu(){
+    overlay.classList.remove('open');
+    hamburgerBtn.classList.remove('open');
+    hamburgerBtn.setAttribute('aria-expanded','false');
+    document.body.style.overflow = '';
+  }
+  hamburgerBtn.addEventListener('click', () => {
+    overlay.classList.contains('open') ? closeMenu() : openMenu();
+  });
+  closeBtn.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeMenu(); });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const id = entry.target.id;
+        dots.forEach(d => d.classList.toggle('active', d.dataset.target === id));
+      }
+    });
+  }, { root: container, threshold: 0.6 });
+
+  panels.forEach(p => io.observe(p));
+})();
+</script>
+</body>
+</html>

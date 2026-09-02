@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AliEN Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="stylesheet" href="/styles.css">
+</head>
+
+<body id="lablife-page">
+
+<header class="topbar">
+  <a href="/index.html" class="logo">
+    <img src="/assets/alien-lab-logo.png" class="brand-icon" viewBox="0 0 40 40" fill="none"></img>
+  </a>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- No side-nav here on purpose — this page is a single long scroll,
+     not a series of scroll-snap panels, so there's no "current panel"
+     for a diamond indicator to track. -->
+
+<div class="nav-overlay" id="navOverlay">
+  <div class="nav-top">
+    <a href="/index.html" class="logo"></a>
+    <button class="hamburger open" id="closeBtn" aria-label="Close menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-links">
+    <a href="/index.html"><span class="idx">01.</span>Home</a>
+    <a href="/story/"><span class="idx">02.</span>Our Story</a>
+    <a href="/team/"><span class="idx">03.</span>The People</a>
+    <a href="/resources/"><span class="idx">04.</span>Resources</a>
+    <a href="/lablife/"><span class="idx">05.</span>Lab Life</a>
+  </div>
+</div>
+
+<main>
+  <div class="lablife-wrap">
+    <h1 class="lablife-title display">Lab Life.</h1>
+
+    <div class="lablife-list">
+
+      <article class="lablife-entry">
+        <span class="lablife-date">9 Dec 2025</span>
+        <img class="lablife-image" src="/assets/lablife-1.png" alt="Literature Review Workshop">
+        <div class="lablife-copy">
+          <h2 class="lablife-heading display">Literature Review Workshop</h2>
+          <p class="lablife-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in</p>
+        </div>
+      </article>
+
+      <hr class="lablife-divider">
+
+      <article class="lablife-entry">
+        <span class="lablife-date display">9 Dec 2025</span>
+        <img class="lablife-image" src="/assets/lablife-2.png" alt="Literature Review Workshop">
+        <div class="lablife-copy">
+          <h2 class="lablife-heading display">Literature Review Workshop</h2>
+          <p class="lablife-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in</p>
+        </div>
+      </article>
+
+      <hr class="lablife-divider">
+
+      <article class="lablife-entry">
+        <span class="lablife-date display">9 Dec 2025</span>
+        <img class="lablife-image" src="/assets/lablife-3.png" alt="Literature Review Workshop">
+        <div class="lablife-copy">
+          <h2 class="lablife-heading display">Literature Review Workshop</h2>
+          <p class="lablife-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in</p>
+        </div>
+      </article>
+
+      <hr class="lablife-divider">
+
+      <article class="lablife-entry">
+        <span class="lablife-date display">9 Dec 2025</span>
+        <img class="lablife-image" src="/assets/lablife-4.png" alt="Literature Review Workshop">
+        <div class="lablife-copy">
+          <h2 class="lablife-heading display">Literature Review Workshop</h2>
+          <p class="lablife-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <div class="footer-note lablife-footer">
+    <span>&copy; 2026 ALiEN Lab, Dr Mah Sue Lynn.</span>
+    <span>All rights reserved.</span>
+  </div>
+</main>
+
+<script>
+(function(){
+  // This page has no scroll-snap panels, no side-nav dots, and no
+  // in-page data-target links, so it only needs the hamburger menu —
+  // none of the IntersectionObserver / goTo machinery the other pages
+  // use applies here.
+  const overlay = document.getElementById('navOverlay');
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const closeBtn = document.getElementById('closeBtn');
+
+  function openMenu(){
+    overlay.classList.add('open');
+    hamburgerBtn.classList.add('open');
+    hamburgerBtn.setAttribute('aria-expanded','true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu(){
+    overlay.classList.remove('open');
+    hamburgerBtn.classList.remove('open');
+    hamburgerBtn.setAttribute('aria-expanded','false');
+    document.body.style.overflow = '';
+  }
+  hamburgerBtn.addEventListener('click', () => {
+    overlay.classList.contains('open') ? closeMenu() : openMenu();
+  });
+  closeBtn.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeMenu(); });
+})();
+</script>
+</body>
+</html>

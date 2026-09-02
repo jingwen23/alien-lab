@@ -60,8 +60,14 @@
     --sp-lg: clamp(2rem,    1.5rem + 2.5vw,   3.75rem);  /* ~32–60px */
     --sp-xl: clamp(2.75rem, 2rem + 3.75vw,    5.5rem);   /* ~44–88px : header-to-content gap */
   }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html,body{height:100%;}
+  *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+  }
+  html,body{
+    height:100%;
+  }
   body{
     font-family:'Inter',sans-serif;
     color:var(--ink);
@@ -72,9 +78,9 @@
   .display{
     font-family:'Inter',sans-serif; 
     font-weight:800; 
-    letter-spacing:-0.01em;
+    letter-spacing:-0.06em;
   }
-  .mono{
+  /* .mono{
     font-family: "Google Sans Flex", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -84,10 +90,15 @@
       "wdth" 100,
       "GRAD" 0,
       "ROND" 0;
+  } */
+  a{
+    color:inherit; 
+    text-decoration:none;
   }
-  a{color:inherit; text-decoration:none;}
-  button{font-family:inherit; cursor:pointer;}
-
+  button{
+    font-family:inherit; 
+    cursor:pointer;
+  }
   .brand-icon{
     height:90px;
     width:auto;
@@ -95,14 +106,18 @@
     object-fit:contain;
   }
 
-  /* ---------- mascot sprite ---------- */
-  .mascot{width:1em; height:1em; display:inline-block; color:var(--blue); flex-shrink:0;}
-
   /* ---------- header ---------- */
   .topbar{
-    position:fixed; top:0; left:0; right:0; height:var(--header-h);
-    display:flex; align-items:center; justify-content:space-between;
-    padding:0 28px 0 32px; z-index:500;
+    position:fixed; 
+    top:0; 
+    left:0; 
+    right:0; 
+    height:var(--header-h);
+    display:flex;
+    align-items:center; 
+    justify-content:space-between;
+    padding:0 28px 0 32px; 
+    z-index:500;
     background:linear-gradient(to bottom, rgba(255,255,255,.96), rgba(255,255,255,.75) 80%, transparent);
   }
   .logo{
@@ -111,58 +126,95 @@
     font-weight:700; 
     font-size:var(--fs-base); letter-spacing:.02em;
   }
-  .logo .mascot{width:24px; height:24px;}
   .hamburger{
-    width:52px; height:52px; border-radius:12px; 
-    background:var(--blue-deep); border:none;
-    display:flex; align-items:center; justify-content:center; gap:4px; flex-direction:column;
+    width:52px; 
+    height:52px; 
+    border-radius:12px; 
+    background:var(--blue-deep); 
+    border:none;
+    display:flex; 
+    align-items:center; 
+    justify-content:center; 
+    gap:4px; 
+    flex-direction:column;
     transition:transform .25s ease, background .25s ease;
   }
-  .hamburger:hover{ transform:scale(1.05); }
-  .hamburger span{ display:block; width:20px; height:2px; background:#fff; border-radius:2px; transition:all .3s ease; }
-  .hamburger.open span:nth-child(1){ transform:translateY(6px) rotate(45deg); }
-  .hamburger.open span:nth-child(2){ opacity:0; }
-  .hamburger.open span:nth-child(3){ transform:translateY(-6px) rotate(-45deg); }
+  .hamburger:hover{ 
+    transform:scale(1.05); 
+  }
+  .hamburger span{ 
+    display:block; 
+    width:20px; 
+    height:2px; 
+    background:#fff; 
+    border-radius:2px; 
+    transition:all .3s ease; 
+  }
+  .hamburger.open span:nth-child(1){ 
+    transform:translateY(6px) rotate(45deg); 
+  }
+  .hamburger.open span:nth-child(2){ 
+    opacity:0; 
+  }
+  .hamburger.open span:nth-child(3){ 
+    transform:translateY(-6px) rotate(-45deg); 
+  }
 
   /* ---------- side progress nav ---------- */
   .side-nav{
-    position:fixed; right:34px; top:50%; transform:translateY(-50%);
-    z-index:400; display:flex; flex-direction:column; align-items:center;
+    position:fixed; 
+    right:34px; 
+    top:50%; 
+    transform:translateY(-50%);
+    z-index:400; 
+    display:flex; 
+    flex-direction:column; 
+    align-items:center;
+    /* background-color: rgb(255 255 255 / 50%);
+    border: 10px solid rgba(0, 0, 0, 0.3); 
+    background-clip: padding-box;   */
   }
   .side-nav .dot-btn{
-    background:none; border:none; padding:10px 6px; position:relative;
-    display:flex; align-items:center; justify-content:center;
+    background:none; 
+    border:none; 
+    padding:10px 6px; 
+    position:relative;
+    display:flex; 
+    align-items:center; 
+    justify-content:center;
   }
   .side-nav .dot-btn .diamond{
-    width:8px; height:8px; background:var(--line); transform:rotate(45deg);
+    width:8px; 
+    height:8px; 
+    background:var(--line); 
+    transform:rotate(45deg);
     transition:background .3s ease, transform .3s ease;
   }
   .side-nav .dot-btn::after{
-    content:''; position:absolute; left:50%; top:100%; width:1px; height:22px;
-    background:var(--line); transform:translateX(-50%);
+    content:''; 
+    position:absolute; 
+    left:50%; 
+    top:100%; 
+    width:1px; 
+    height:22px;
+    background:var(--line); 
+    transform:translateX(-50%);
   }
-  .side-nav .dot-btn:last-child::after{ display:none; }
-  .side-nav .dot-btn.active .diamond{ background:var(--blue); transform:rotate(45deg) scale(1.35); }
-  .side-nav .dot-btn:hover .diamond{ background:var(--blue-deep); }
-
-  /* ----------------------------------------------------------------
-     IMAGE SIZING — FLUID, CONTAINER-AWARE
-     ----------------------------------------------------------------
-     Root cause of the 2K overlap: `.hero-image` was pinned to a fixed
-     viewport-width (40vw / 50vw). `vw` is relative to the *viewport*,
-     not to whatever grid column or wrapper the image sits inside — so
-     on a wide monitor the image ignored its column and grew straight
-     over the text next to it. The fix: images fill their own
-     container (width:100%; height:auto) and each container caps its
-     own max-width. That way the image is always exactly as big as
-     the space designed for it, at any screen size.
-     ---------------------------------------------------------------- */
+  .side-nav .dot-btn:last-child::after{ 
+    display:none; 
+  }
+  .side-nav .dot-btn.active .diamond{ 
+    background:var(--blue); 
+    transform:rotate(45deg) scale(1.35); 
+  }
+  .side-nav .dot-btn:hover .diamond{ 
+    background:var(--blue-deep); 
+  }
   .hero-image{
     width:100%;
     height:auto;
     display:block;
   }
-  /* Home hero image: centered, capped so it doesn't get absurd on huge screens */
   .hero-wrap .hero-image{
     max-width:620px;
     margin:0 auto;
@@ -174,21 +226,29 @@
 
   /* ---------- scroll container ---------- */
   main{
-    height:100svh; height:100vh;
-    overflow-y:scroll; overflow-x:hidden;
+    height:100svh; 
+    height:100vh;
+    overflow-y:scroll; 
+    overflow-x:hidden;
     scroll-snap-type:y mandatory;
     scroll-behavior:smooth;
   }
   section.panel{
-    min-height:100svh; min-height:100vh;
-    scroll-snap-align:start; scroll-snap-stop:always;
-    display:flex; flex-direction:column; justify-content:center;
+    min-height:100svh; 
+    min-height:100vh;
+    scroll-snap-align:start; 
+    scroll-snap-stop:always;
+    display:flex; 
+    flex-direction:column; 
+    justify-content:center;
     position:relative; 
     padding:calc(var(--header-h) + var(--sp-md)) 8vw 60px;
     overflow:hidden;
   }
-  .eyebrow{
-    display:inline-flex; align-items:center; gap:8px;
+  /* .eyebrow{
+    display:inline-flex; 
+    align-items:center; 
+    gap:8px;
     font-family: "Google Sans Flex", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -201,57 +261,217 @@
     font-size:var(--fs-xs); 
     letter-spacing:.08em; 
     text-transform:uppercase;
-    color:var(--blue); margin-bottom:18px;
+    color:var(--blue); 
+    margin-bottom:18px;
+  } */
+
+  /* ---------- fullscreen nav overlay ---------- */
+  .nav-overlay{
+    position:fixed; 
+    inset:0; 
+    background:var(--blue-deep); 
+    z-index:600;
+    display:flex; 
+    flex-direction:column; 
+    justify-content:center; 
+    padding:0 8vw;
+    transform:translateY(-100%); 
+    transition:transform .5s cubic-bezier(.77,0,.18,1);
   }
-  .eyebrow .mascot{ width:16px; height:16px; }
+  .nav-overlay.open{ 
+    transform:translateY(0); 
+  }
+  .nav-overlay .nav-top{ 
+    position:absolute; 
+    top:0; 
+    left:0; 
+    right:0; 
+    height:var(--header-h); 
+    display:flex; 
+    align-items:center; 
+    justify-content:space-between; 
+    padding:0 28px 0 32px; 
+  }
+  .nav-overlay .logo{ 
+    color:#fff; 
+  }
+  /* .nav-overlay .logo .mascot{ color:#f6a94a; } */
+  .nav-links{ 
+    display:flex; 
+    flex-direction:column; 
+    gap:6px; 
+  }
+  .nav-links a{
+    font-family:'Inter',sans-serif; 
+    font-weight: 300;
+    font-size:var(--fs-nav); 
+    font-weight: 700;
+    color:#69788E;
+    display:flex; 
+    align-items:baseline;
+    gap:18px; 
+    padding:10px 0; 
+    transition:color .25s ease;
+    letter-spacing: -1px;
+  }
+  .nav-links a .idx{ 
+    font-family:'Index',sans-serif; 
+    font-size:var(--fs-lg); 
+    color:#D0D5DC; 
+    font-weight: 500;
+    width:34px; 
+    letter-spacing: -1px;
+  }
+  .nav-links a:hover, .nav-links a.current{ 
+    color:#E1EBF9; 
+  }
+  .nav-links a:hover .idx, .nav-links a.current .idx{ 
+    color:#F1A340; 
+  }
+  .nav-links a:active{ 
+    color:#E1EBF9; 
+  }
+  .nav-links a:active .idx{ 
+    color:#F1A340; 
+  }
+  #home-page   .nav-links a[href="/index.html"],
+  #story-page  .nav-links a[href="/story/"],
+  #team-page   .nav-links a[href="/team/"],
+  #resources-page .nav-links a[href="/resources/"],
+  #lablife-page   .nav-links a[href="/lablife/"] {
+    color: #fff;
+  }
+  #home-page   .nav-links a[href="/index.html"] .idx,
+  #story-page  .nav-links a[href="/story/"] .idx,
+  #team-page   .nav-links a[href="/team/"] .idx,
+  #resources-page .nav-links a[href="/resources/"] .idx,
+  #lablife-page   .nav-links a[href="/lablife/"] .idx {
+    color: #F1A340; /* matches the existing hover accent on the index number */
+  }
+
+  /* .nav-foot{ margin-top:44px; display:flex; gap:26px; flex-wrap:wrap; }
+  .nav-foot a{ font-family:'Space Mono'; font-size:var(--fs-xs); color:#9aa4c4; text-decoration:underline; text-underline-offset:3px; } */
 
   /* ================= HOME ================= */
-  #home{ align-items:center; text-align:center; }
-  .hero-wrap{ position:relative; max-width:900px; margin:0 auto; }
-  .hero-title{
-    font-size:var(--fs-hero); line-height:.92; text-align:center; position:relative; z-index:2;
+  #home{ 
+    align-items:center; 
+    text-align:center; 
   }
-  .hero-title .line-1{ color:var(--ink); }
-  .hero-title .line-2{ color:var(--ink); }
-  .hero-title .line-3{ color:var(--blue); }
-  .hero-mascot{ position:absolute; width:clamp(34px,5vw,54px); height:clamp(34px,5vw,54px); z-index:3; filter:drop-shadow(0 6px 10px rgba(0,0,0,.12)); }
-  .hm1{ color:var(--blue); top:-6%; left:8%; transform:rotate(-12deg); }
+  .hero-wrap{ 
+    position:relative; 
+    max-width:900px; 
+    margin:0 auto; 
+  }
+  .hero-title{
+    font-size:var(--fs-hero); 
+    line-height:.92; 
+    text-align:center; 
+    position:relative; 
+    z-index:2;
+  }
+  .hero-title .line-1{ 
+    color:var(--ink); 
+  }
+  .hero-title .line-2{ 
+    color:var(--ink); 
+  }
+  .hero-title .line-3{ 
+    color:var(--blue); 
+  }
+  /* .hero-mascot{ 
+    position:absolute; 
+    width:clamp(34px,5vw,54px); 
+    height:clamp(34px,5vw,54px); 
+    z-index:3; 
+    filter:drop-shadow(0 6px 10px rgba(0,0,0,.12)); 
+  } */
+  /* .hm1{ color:var(--blue); top:-6%; left:8%; transform:rotate(-12deg); }
   .hm2{ color:#f6a94a; top:2%; right:6%; transform:rotate(10deg); }
   .hm3{ color:var(--orange); top:40%; left:2%; transform:rotate(-6deg); }
-  .hm4{ color:var(--blue); bottom:6%; right:0; transform:rotate(14deg); }
-  .hero-sub{
+  .hm4{ color:var(--blue); bottom:6%; right:0; transform:rotate(14deg); } */
+  /* .hero-sub{
     max-width:520px; margin:34px auto 0; color:var(--slate); font-size:var(--fs-md); line-height:1.6;
-  }
+  } */
   .hero-cta{
-    display:inline-flex; align-items:center; gap:10px;
-    font-weight:600; font-size:var(--fs-base); color:var(--ink);
+    display:inline-flex; 
+    align-items:center; 
+    gap:10px;
+    font-weight:600; 
+    font-size:var(--fs-base);
+    color:var(--ink);
     justify-content: center;
   }
   .hero-cta .chev{
-    width:34px; height:34px; border-radius:50%; border:1.5px solid var(--ink);
-    display:flex; align-items:center; justify-content:center; animation:bob 1.8s ease-in-out infinite;
+    width:34px; 
+    height:34px; 
+    border-radius:50%; 
+    border:1.5px solid var(--ink);
+    display:flex; 
+    align-items:center; 
+    justify-content:center; 
+    animation:bob 1.8s ease-in-out infinite;
   }
-  @keyframes bob{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(5px);} }
+  @keyframes bob{ 
+    0%,100%{transform:translateY(0);} 50%{transform:translateY(5px);} 
+  }
 
   /* ================= WE ARE ================= */
   #we-are .grid{
-    display:grid; grid-template-columns:.9fr 1.1fr; gap:6vw; align-items:center; max-width:1180px; margin:0 auto; width:100%;
+    display:grid; 
+    grid-template-columns:.9fr 1.1fr; gap:6vw; 
+    align-items:center; 
+    max-width:1180px; 
+    margin:0 auto; 
+    width:100%;
   }
-  .brain-graphic{ width:100%; max-width:440px; }
-  .brain-graphic svg{ width:100%; height:100%; }
-  .we-are-title{ font-size:var(--fs-5xl); line-height:1; margin-bottom:20px; }
-  .we-are-title .accent{ color:var(--blue); }
+  .brain-graphic{ 
+    width:100%; 
+    max-width:440px; 
+  }
+  /* .brain-graphic svg{ 
+    width:100%; 
+    height:100%; 
+  } */
+  .we-are-title{ 
+    font-size:var(--fs-5xl); 
+    line-height:1; 
+    margin-bottom:20px; 
+    letter-spacing:-0.06em;
+  }
+  .we-are-title .accent{ 
+    color:var(--blue); 
+  }
   .we-are-body{
     color:black;
     font-size:var(--fs-lg);
     line-height:1.4;
-    max-width:550px;
+    /* max-width:550px; */
     padding-top:5px;
   }
-  .stat-row{ display:flex; gap:36px; margin-top:34px; flex-wrap:wrap; }
-  .stat-row div b{ display:block; font-family:'Archivo Black'; font-size:var(--fs-2xl); color:var(--ink); }
-  .stat-row div span{ font-size:var(--fs-xs); color:var(--slate); }
-
+  .stat-row{ 
+    display:flex; 
+    gap:36px; 
+    margin-top:34px; 
+    flex-wrap:wrap; 
+  }
+  .stat-row div b{ 
+    display:block; 
+    font-family: "Google Sans Flex", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-variation-settings:
+      "slnt" 0,
+      "wdth" 100,
+      "GRAD" 0,
+      "ROND" 0;
+    font-size:var(--fs-2xl); 
+    color:var(--ink); 
+  }
+  .stat-row div span{ 
+    font-size:var(--fs-xs); 
+    color:var(--slate); 
+  }
   .we-are-body {
     font-family: "Google Sans Flex", sans-serif;
     font-optical-sizing: auto;
@@ -263,21 +483,11 @@
       "GRAD" 0,
       "ROND" 0;
     }
-
-
-    .tips-tricks{ 
-      font-size:var(--fs-3xl); 
-      line-height:1; 
-      margin-bottom:20px; 
-    }
-
-    .tips-tricks .accent{ color:var(--blue); }
-
   /* ================= WORK ================= */
-  #work .work-head{
+  #work .work-head, #research .work-head{
     font-size:var(--fs-4xl);
     margin-bottom:34px;
-    display:flex;
+    /* display:flex; */
     align-items:flex-start;
     gap:14px;
     max-width:1180px;
@@ -286,10 +496,15 @@
     width:100%;
     justify-content: center;
   }
-  #work .work-head .mascot{ width:.75em; height:.75em; margin-top:6px; }
+  /* #work .work-head .mascot{ width:.75em; height:.75em; margin-top:6px; } */
   .work-grid{
-    max-width:1180px; margin:0 auto; width:100%;
-    display:grid; grid-template-columns:1fr .62fr .62fr; grid-template-rows:auto auto; gap:18px;
+    max-width:1180px; 
+    margin:0 auto; 
+    width:100%;
+    display:grid; 
+    grid-template-columns:1fr .62fr .62fr; 
+    grid-template-rows:auto auto; 
+    gap:18px;
   }
   .affiliate-card{
     grid-row:1/3;
@@ -328,22 +543,35 @@
     line-height:1.4;
     max-width:350px;
   }
-  .affiliate-arrow{ margin-top:16px; width:38px; height:14px; }
+  .affiliate-arrow{ 
+    margin-top:16px; 
+    width:38px; 
+    height:14px; }
   .work-tile{
-    border-radius:20px; background:var(--orange); padding:22px; color:#fff;
-    display:flex; flex-direction:column; justify-content:flex-end; min-height:150px;
+    border-radius:20px; 
+    background:var(--orange); 
+    padding:22px; 
+    color:#fff;
+    display:flex; 
+    flex-direction:column; 
+    justify-content:flex-end; 
+    min-height:150px;
     transition:transform .3s ease;
-
   }
-
-  .work-tile:hover{ transform:translateY(-4px); }
+  .work-tile:hover{ 
+    transform:translateY(-4px); 
+  }
   .work-tile .tag{
     font-family:'Inter', sans-serif;
     font-size:var(--fs-2xs);
     text-transform:uppercase;
     margin-bottom:6px;
   }
-  .work-tile h5{ font-size:var(--fs-lg); font-weight:700; line-height:1.25; }
+  .work-tile h5{ 
+    font-size:var(--fs-lg); 
+    font-weight:700; 
+    line-height:1.25; 
+  }
   .wt2{
     grid-column:2;
     grid-row:1;
@@ -353,8 +581,6 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-
-
   }
   .wt3{
     grid-column:3;
@@ -375,12 +601,16 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-
   }
-
   /* ================= WHY ================= */
   #why .grid{
-    display:grid; grid-template-columns:.9fr 1.1fr; gap:6vw; max-width:1180px; margin:0 auto; width:100%; align-items:center;
+    display:grid; 
+    grid-template-columns:.9fr 1.1fr; 
+    gap:6vw; 
+    max-width:1180px; 
+    margin:0 auto; 
+    width:100%; 
+    align-items:center;
   }
   .why-title{
     font-size:var(--fs-3xl);
@@ -390,14 +620,15 @@
     gap:10px;
     justify-content: flex-start;
   }
-  .why-title .mascot{ width:.7em; height:.7em; margin-top:4px; }
-  .why-title .accent{ color:var(--blue); }
+  /* .why-title .mascot{ width:.7em; height:.7em; margin-top:4px; } */
+  .why-title .accent{ 
+    color:var(--blue); 
+  }
   .why-body{
     color:black;
     font-size:var(--fs-md);
     line-height:1.4;
     max-width:440px;
-
     font-family: "Google Sans Flex", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -409,25 +640,34 @@
       "ROND" 0;
 
   }
-  /* .why-grid was being used as an <img> class with height:100% on an
-     unconstrained parent, which computes to `auto` per spec anyway —
-     but combined with overflow:hidden it could clip the image
-     unpredictably. Treat it the same as the other fluid images. */
   .why-grid{
     width:100%;
     height:auto;
     display:block;
     border-radius:20px;
   }
-  .reason{ padding:22px 0; border-top:1px solid var(--line); display:grid; grid-template-columns:74px 1fr; gap:8px; }
-  .reason:last-child{ border-bottom:1px solid var(--line); }
-  .reason .num{ font-family:'Inter', sans-serif; font-size:var(--fs-2xl); color:var(--ink); }
-  .reason h4{ font-size:var(--fs-lg); margin-bottom:6px; }
+  .reason{ 
+    padding:22px 0; 
+    border-top:1px solid var(--line); 
+    display:grid; 
+    grid-template-columns:74px 1fr; gap:8px; 
+  }
+  .reason:last-child{ 
+    border-bottom:1px solid var(--line); 
+  }
+  .reason .num{ 
+    font-family:'Inter', sans-serif; 
+    font-size:var(--fs-2xl); 
+    color:var(--ink); 
+  }
+  .reason h4{ 
+    font-size:var(--fs-lg); 
+    margin-bottom:6px; 
+  }
   .reason p{
     color:black;
     font-size:var(--fs-lg);
     line-height:1.4;
-
     font-family: "Google Sans Flex", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -438,7 +678,6 @@
       "GRAD" 0,
       "ROND" 0;
   }
-
   /* ================= TEAM ================= */
   #team .team-head{ 
     max-width:1180px; 
@@ -449,7 +688,7 @@
   #team .team-head .display{
     font-size:var(--fs-2_5xl); 
     font-family: 'Inter',sans-serif;
-    letter-spacing: -0.05em;
+    letter-spacing:-0.06em;
     font-weight: 800;
     color: var(--blue);
   }
@@ -461,16 +700,42 @@
     line-height:1.4; 
     text-align: left;
   }
-  .team-grid{ max-width:1180px; margin:0 auto; width:100%; display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
-  .team-card{ background:var(--mist); border-radius:18px; padding:24px 20px; text-align:left; }
-  .avatar{ width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-bottom:18px; }
-  .avatar .mascot{ width:34px; height:34px; }
-  .team-card h4{ font-size:var(--fs-md); margin-bottom:2px; }
-  .team-card span{ font-size:var(--fs-xs); color:var(--blue); font-weight:600; font-family:'Space Mono'; }
+  .person-body{
+    color:black;
+    font-size:var(--fs-base);
+    line-height:1.4;
+    /* max-width:550px; */
+    padding: 5px 0;
+  }
+
+  
+
+  /* .team-grid{ 
+    max-width:1180px; 
+    margin:0 auto; 
+    width:100%; 
+    display:grid; 
+    grid-template-columns:repeat(4,1fr); 
+    gap:20px; 
+  }
+  .team-card{ 
+    background:var(--mist); 
+    border-radius:18px; 
+    padding:24px 20px; 
+    text-align:left; 
+  } */
+  /* .avatar{ width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-bottom:18px; }
+  .avatar .mascot{ width:34px; height:34px; } */
+  /* .team-card h4{ font-size:var(--fs-md); margin-bottom:2px; }
+  .team-card span{ font-size:var(--fs-xs); color:var(--blue); font-weight:600; font-family:'Space Mono'; } */
 
   /* ================= RESEARCH ================= */
-  #research .research-head{ max-width:1180px; margin:0 auto 30px; width:100%; }
-  #research .research-head .display{ font-size:var(--fs-4xl); }
+  /* #research .research-head{ 
+    max-width:1180px; 
+    margin:0 auto 30px; 
+    width:100%; 
+  }
+  #research .research-head .display{ font-size:var(--fs-4xl); } 
   .research-list{ max-width:1180px; margin:0 auto; width:100%; display:flex; flex-direction:column; }
   .research-row{
     display:grid; grid-template-columns:1fr auto auto; align-items:center; gap:20px;
@@ -478,15 +743,17 @@
   }
   .research-list .research-row:last-child{ border-bottom:1px solid var(--line); }
   .research-row h4{ font-size:var(--fs-lg); }
-  .research-row p{ color:var(--slate); font-size:var(--fs-sm); margin-top:4px; max-width:420px; }
-  .status{ font-family:'Space Mono'; font-size:var(--fs-2xs); padding:6px 12px; border-radius:20px; text-transform:uppercase; letter-spacing:.05em; white-space:nowrap; }
+  .research-row p{ color:var(--slate); font-size:var(--fs-sm); margin-top:4px; max-width:420px; } */
+  /* .status{ font-family:'Space Mono'; font-size:var(--fs-2xs); padding:6px 12px; border-radius:20px; text-transform:uppercase; letter-spacing:.05em; white-space:nowrap; }
   .status.recruiting{ background:#fdece6; color:var(--orange); }
   .status.analyzing{ background:#e7ecf9; color:var(--blue); }
   .status.published{ background:#e8f4ec; color:#1c8348; }
-  .research-row .arrow{ width:30px; height:12px; opacity:.5; }
+  .research-row .arrow{ width:30px; height:12px; opacity:.5; } */
+  
+
 
   /* ================= PUBLICATIONS ================= */
-  #publications .pub-head{ max-width:1180px; margin:0 auto 30px; width:100%; }
+  /* #publications .pub-head{ max-width:1180px; margin:0 auto 30px; width:100%; }
   #publications .pub-head .display{ font-size:var(--fs-4xl); }
   .pub-list{ max-width:1180px; margin:0 auto; width:100%; }
   .pub-row{ display:grid; grid-template-columns:70px 1fr auto; gap:22px; padding:20px 4px; border-top:1px solid var(--line); align-items:baseline; }
@@ -494,12 +761,17 @@
   .pub-row .yr{ font-family:'Space Mono'; color:var(--blue); font-weight:700; font-size:var(--fs-base); }
   .pub-row h4{ font-size:var(--fs-md); font-weight:600; }
   .pub-row span{ color:var(--slate); font-size:var(--fs-xs); }
-  .pub-row .venue{ font-size:var(--fs-xs); color:var(--slate); font-family:'Space Mono'; white-space:nowrap; }
+  .pub-row .venue{ font-size:var(--fs-xs); color:var(--slate); font-family:'Space Mono'; white-space:nowrap; } */
 
   /* ================= CONTACT ================= */
-  #contact{ text-align:left; }
+  /* #contact{ text-align:left; }
   .contact-grid{ max-width:1180px; margin:0 auto; width:100%; display:grid; grid-template-columns:1.1fr .9fr; gap:6vw; align-items:center; }
-  .contact-title{ font-size:var(--fs-6xl); line-height:.96; margin-bottom:18px; }
+  .contact-title{ 
+    font-size:var(--fs-6xl); 
+    line-height:.96; 
+    margin-bottom:18px; 
+    letter-spacing:-0.06em;
+  }
   .contact-title .accent{ color:var(--blue); }
   .contact-body{ color:var(--slate); font-size:var(--fs-md); line-height:1.7; max-width:440px; margin-bottom:30px; }
   .contact-email{ display:inline-flex; align-items:center; gap:12px; font-family:'Archivo Black'; font-size:var(--fs-xl); color:var(--ink); border-bottom:2px solid var(--ink); padding-bottom:6px; }
@@ -508,80 +780,38 @@
   .socials a:hover{ background:var(--ink); color:#fff; }
   .contact-card{ background:var(--ink); border-radius:24px; padding:40px 34px; color:#fff; }
   .contact-card .mascot{ width:46px; height:46px; color:#f6a94a; margin-bottom:22px; }
-  .contact-card h4{ font-size:var(--fs-base); color:#9aa4c4; text-transform:uppercase; letter-spacing:.06em; margin-bottom:10px; font-family:'Space Mono'; }
-  .contact-card p{ font-size:var(--fs-base); line-height:1.7; color:#dde3f1; }
-  .footer-note{ position:absolute; bottom:26px; left:8vw; right:8vw; display:flex; justify-content:space-between; font-family:'Inter', sans-serif; font-size:var(--fs-2xs); color:var(--slate); flex-wrap:wrap; gap:6px; }
-
-  /* ---------- fullscreen nav overlay ---------- */
-  .nav-overlay{
-    position:fixed; inset:0; background:var(--blue-deep); z-index:600;
-    display:flex; flex-direction:column; justify-content:center; padding:0 8vw;
-    transform:translateY(-100%); transition:transform .5s cubic-bezier(.77,0,.18,1);
-  }
-  .nav-overlay.open{ transform:translateY(0); }
-  .nav-overlay .nav-top{ position:absolute; top:0; left:0; right:0; height:var(--header-h); display:flex; align-items:center; justify-content:space-between; padding:0 28px 0 32px; }
-  .nav-overlay .logo{ color:#fff; }
-  .nav-overlay .logo .mascot{ color:#f6a94a; }
-  .nav-links{ display:flex; flex-direction:column; gap:6px; }
-  .nav-links a{
-    font-family:'Index',sans-serif; 
-    font-weight: 500;
-    font-size:var(--fs-nav); 
-    font-weight: 700;
-    color:#69788E;
-    display:flex; 
-    align-items:baseline;
-    gap:18px; 
-    padding:10px 0; 
-    transition:color .25s ease;
-    letter-spacing: -1px;
-  }
-  .nav-links a .idx{ 
-    font-family:'Index',sans-serif; 
-    font-size:var(--fs-lg); 
-    color:#D0D5DC; 
-    font-weight: 500;
-    width:34px; 
-    letter-spacing: -1px;
-  }
-  .nav-links a:hover, .nav-links a.current{ 
-    color:#E1EBF9; 
-  }
-  .nav-links a:hover .idx, .nav-links a.current .idx{ 
-    color:#F1A340; 
-  }
-  .nav-foot{ margin-top:44px; display:flex; gap:26px; flex-wrap:wrap; }
-  .nav-foot a{ font-family:'Space Mono'; font-size:var(--fs-xs); color:#9aa4c4; text-decoration:underline; text-underline-offset:3px; }
+  .contact-card h4{ font-size:var(--fs-base); color:#9aa4c4; text-transform:uppercase; letter-spacing:-0.06em; margin-bottom:10px; font-family:'Space Mono'; }
+  .contact-card p{ font-size:var(--fs-base); line-height:1.7; color:#dde3f1; } */
+  
+  
 
   /* ================= RESOURCES PAGE ================= */
-  /* Unlike index.html's panels (Home/We Are/Work/Why — each designed to
-     roughly fill a screen, so centering looks intentional), Resources
-     panels vary a lot in content length: a short hero next to a long
-     tip-list-heavy panel. Vertically centering variable-length content
-     in a fixed 100vh box means the gap above/below is inconsistent —
-     sometimes tiny, sometimes huge — which is what was reading as
-     "not centered" on short panels like the Literature Review hero.
-     Anchoring to the top instead gives every panel the same, predictable
-     gap below the header regardless of how much content it holds. Long
-     panels (Tips & Tricks, Error Messages) look identical either way,
-     since their content already meets or exceeds the viewport height —
-     this only changes the short ones. */
-  #resources-page .panel{ justify-content:center; }
+  #resources-page .panel{ 
+    justify-content:center; }
 
   /* -- lit review hero -- */
   .res-hero-grid{
-    display:grid; grid-template-columns:1fr .95fr; gap:6vw; align-items:center;
-    max-width:1180px; margin:0 auto; width:100%;
+    display:grid; 
+    grid-template-columns:1fr .95fr; 
+    gap:6vw; 
+    align-items:center;
+    max-width:1180px; 
+    margin:0 auto; 
+    width:100%;
   }
   .res-hero-grid h1{
-    font-size:var(--fs-4xl); line-height:1.05; margin-bottom:22px;
+    font-size:var(--fs-4xl); 
+    line-height:1.05; 
+    margin-bottom:22px;
   }
-  .res-hero-grid h1 .accent{ color:var(--blue); }
+  .res-hero-grid h1 .accent{ 
+    color:var(--blue); 
+  }
   .res-hero-grid p{ 
     color:black; 
     font-size:var(--fs-md); 
     line-height:1.4; 
-    max-width:46ch; 
+    /* max-width:46ch;  */
     font-family: "Google Sans Flex", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -592,7 +822,33 @@
       "GRAD" 0,
       "ROND" 0;
   }
-  .res-links-row{ display:flex; gap:var(--sp-md); margin-top:var(--sp-sm); flex-wrap:wrap; }
+  .res-links-row{ 
+    display:flex; 
+    gap:var(--sp-xs); 
+    margin-top:var(--sp-sm); 
+    flex-wrap:wrap; 
+  }
+  .person-links-row{ 
+    display:flex; 
+    gap:var(--sp-xs); 
+    margin-top:var(--sp-xs); 
+    flex-wrap:wrap; 
+  }
+
+  .person-links-row a{ 
+    color:var(--blue); 
+    font-weight:600; 
+    font-size:var(--fs-sm); 
+    border-bottom:1px solid transparent; 
+    transition:border-color .2s ease; 
+    font-family: 'Inter', sans-serif;
+  }
+
+  .person-links-row a:hover{ 
+    text-decoration: underline;
+    transition: 0.2s;
+  }
+
   .res-links-row a{ 
     color:var(--blue); 
     font-weight:600; 
@@ -601,10 +857,9 @@
     transition:border-color .2s ease; 
     font-family: 'Inter', sans-serif;
   }
-  .res-links-row a:hover{ border-color:var(--blue); }
-  /* background:var(--mist) is a visible fallback — if the background
-     image below fails to load (bad path, not yet uploaded), this stays
-     a light grey block instead of disappearing into the white page. */
+  .res-links-row a:hover{ 
+    border-color:var(--blue); 
+  }
   .res-img-block{
     width:100%; 
     aspect-ratio:16/11; 
@@ -616,15 +871,29 @@
       background-size: contain;
       background-position: center;
   }
-
-  /* -- small "Tips & Tricks" style label used for tips-1 / tips-2 -- */
-  .res-label-row{
-    display:flex; align-items:center; justify-content:center; gap:var(--sp-sm);
-    margin:0 auto var(--sp-lg); max-width:1180px; width:100%;
+  .connect-img-block{
+    width:100%; 
+    aspect-ratio:3/1.8; 
+    /* border-radius:10px; */
+    margin-top: 30px;
+    background-image:
+      url('assets/connect-img.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
   }
-  .res-label-chip{ 
-    /* max-width: 50%;
-    height: auto; */
+  /* .res-label-row{
+    display:flex; 
+    align-items:center; 
+    justify-content:center; 
+    gap:var(--sp-sm);
+    margin:0 auto var(--sp-lg); 
+    max-width:1180px; 
+    width:100%;
+  } */
+  /* .res-label-chip{ 
+    max-width: 50%;
+    height: auto;
     border-radius:4px; 
     flex:none; 
     background-image:
@@ -632,10 +901,10 @@
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center;
-  }
-  .res-label-row h2{ font-size:var(--fs-3xl); }
-
-  /* -- large "[mascot] PsychoPy ..." brand heading used for the PsychoPy-specific panels -- */
+  } */
+  /* .res-label-row h2{ 
+    font-size:var(--fs-3xl); 
+  } */
   .res-brand-heading{
     display:flex; 
     align-items:center; 
@@ -646,6 +915,7 @@
     width:100%; 
     text-align:center;
     font-size:var(--fs-4xl);
+    letter-spacing: -0.1em;
   }
   .res-brand-heading img{ 
     height:1.5em; 
@@ -657,24 +927,39 @@
     display: block;
     margin: 0;
 }
-
-
   .res-brand-heading 
   .brand-word{ 
     color:var(--blue); 
     font-weight: 800;
   }
-
   .res-brand-heading h2 {
     margin: 0;
   }
-
+  .publication-brand-heading{
+    display:flex; 
+    align-items:center; 
+    justify-content:flex-start; 
+    gap:var(--sp-xs);
+    margin:0 auto var(--sp-lg); 
+    max-width:1180px; 
+    width:100%; 
+    text-align:center;
+    font-size:var(--fs-4xl);
+    letter-spacing: -0.1em;
+  }
   /* -- numbered tip cards -- */
   .res-tip-grid{
-    display:grid; grid-template-columns:1fr 1fr; gap:var(--sp-lg);
-    max-width:1180px; margin:0 auto; width:100%;
+    display:grid; 
+    grid-template-columns:1fr 1fr; 
+    gap:var(--sp-lg);
+    max-width:1180px; 
+    margin:0 auto; 
+    width:100%;
   }
-  .res-tip-grid.single{ grid-template-columns:1fr; max-width:720px; }
+  .res-tip-grid.single{ 
+    grid-template-columns:1fr; 
+    max-width:720px; 
+  }
   .res-badge{
     display:inline-flex; 
     align-items:center; 
@@ -690,9 +975,8 @@
     font-weight: 800;
     padding: 2px;
   }
-
   .res-tip-card h3{ 
-    font-size:var(--fs-3xl); 
+    font-size:var(--fs-2_5xl); 
     line-height:1.1; 
     margin-bottom:14px; 
     letter-spacing: -0.01em;
@@ -711,7 +995,6 @@
       "GRAD" 0,
       "ROND" 0;
     }
-  
   .res-tip-card ul{ 
     margin:10px 0 0; 
     padding-left:20px; 
@@ -743,9 +1026,6 @@
     color:#1c8348; background:var(--mist); padding:10px 14px; border-radius:8px;
     margin-bottom:8px; overflow-x:auto; white-space:pre;
   }
-
-
-  /* -- error messages / common fixes two-up layout -- */
   .res-error-grid{
     display:grid; 
     grid-template-columns:1fr .95fr; 
@@ -796,22 +1076,14 @@
     font-size:var(--fs-sm); 
     margin-top:4px; 
   }
-
   .res-error-img {
     display: flex;
     flex-direction: column;
     justify-content: center; /* vertical centering */
     align-items: center;     /* horizontal centering */
     gap: var(--sp-lg);       /* space between images */
-}
-
-/* width/min-height/background give each image a visible, reasonably
-   sized placeholder box even before it loads or if the src is wrong —
-   without this, a broken <img> collapses to a tiny icon and the whole
-   two-column layout reads as lopsided, the same issue as .res-img-block
-   above. Once the real image loads, object-fit keeps it looking right
-   inside that box. */
-.res-error-img img {
+  }
+  .res-error-img img {
     display: block;
     width: 100%;
     max-width: 340px;
@@ -820,10 +1092,7 @@
     background: var(--mist);
     border-radius: 10px;
     object-fit: contain;
-}
-
-
-
+  }
   .res-single-col{ 
     max-width:820px; 
     margin:0 auto; 
@@ -888,8 +1157,6 @@
     border-radius:4px; 
     font-size:.9em;
   }
-
-  /* -- demo panel -- */
   .res-demo-col{ 
     max-width:720px; 
     margin:0 auto; 
@@ -932,66 +1199,40 @@
       "GRAD" 0,
       "ROND" 0;
   }
-
-  /* ---------- responsive ---------- */
-  @media (max-width:900px){
-    .res-hero-grid, .res-error-grid{ grid-template-columns:1fr; gap:32px; }
-    .res-hero-grid > div:first-child{ text-align:center; }
-    .res-hero-grid .res-links-row{ justify-content:center; }
-    .res-tip-grid{ grid-template-columns:1fr; gap:36px; }
-    .res-brand-heading, .res-label-row{ flex-wrap:wrap; }
-
-    #we-are .grid, #why .grid, .contact-grid{ grid-template-columns:1fr; gap:36px; }
-    #we-are .grid{ text-align:center; }
-    .brain-graphic{ margin:0 auto; }
-    .stat-row{ justify-content:center; }
-    .team-grid{ grid-template-columns:repeat(2,1fr); }
-    .work-grid{ grid-template-columns:1fr 1fr; }
-    .affiliate-card{ grid-column:1/3; grid-row:auto; min-height:auto; }
-    .wt2{ grid-column:1; grid-row:auto; }
-    .wt3{ grid-column:2; grid-row:2/4; }
-    .wt4{ grid-column:1; grid-row:auto; }
-    .footer-note{ display:none; }
-    .brand-icon{ height:56px; }
-    .hero-wrap .hero-image{ max-width:420px; }
+  .tips-tricks{ 
+      font-size:var(--fs-3xl); 
+      line-height:1; 
+      margin-bottom:20px; 
+      font-weight: 800;
+      text-align: left;
+      letter-spacing:-0.06em;
+    }
+  .publications-heading{ 
+      font-size:var(--fs-3xl); 
+      line-height:1; 
+      margin-bottom:20px; 
+      font-weight: 700;
+      text-align: left;
+      letter-spacing:-0.06em;
+    }
+  .tips-tricks .accent{ 
+      color:var(--blue); 
   }
-  @media (max-width:640px){
-    .side-nav{ display:none; }
-    section.panel{ padding:calc(var(--header-h) + var(--sp-md)) 6vw 40px; }
-    .team-grid{ grid-template-columns:1fr 1fr; gap:14px; }
-    .work-grid{ grid-template-columns:1fr; }
-    .affiliate-card{ grid-column:1; }
-    .wt2,.wt3,.wt4{ grid-column:1; grid-row:auto; min-height:130px; }
-    .research-row{ grid-template-columns:1fr; gap:10px; }
-    .research-row .arrow{ display:none; }
-    .pub-row{ grid-template-columns:1fr; gap:6px; }
-    .pub-row .yr{ order:-1; }
-    .nav-links a{ gap:10px; }
-  }
-  @media (prefers-reduced-motion: reduce){
-    *{ animation:none !important; transition:none !important; }
+  .footer-note{ 
+    position:absolute; 
+    bottom:26px; 
+    left:8vw; 
+    right:8vw; 
+    display:flex; 
+    justify-content:space-between; 
+    font-family:'Inter', sans-serif; 
+    font-size:var(--fs-2xs); 
+    color:var(--slate); 
+    flex-wrap:wrap; 
+    gap:6px;
   }
 
-
-/* ==========================================================================
-   TEAM PAGE (team.html)
-   Reuses the existing tokens (--blue, --orange, --ink, --slate, --mist,
-   --line, --yellow, the --fs-* type scale and --sp-* spacing scale) and
-   the existing .display / .accent / .panel / .footer-note / nav / side-nav
-   rules already defined earlier in the file — nothing here redefines
-   those, it only adds page-specific layout on top of them.
-   ========================================================================== */
-
-/* Every panel is centered on both axes: justify-content centers the
-   panel's content block vertically in the viewport, align-items
-   centers it horizontally. */
-#team-page .panel{ 
-  justify-content:center; 
-  align-items:center; 
-}
-#team-page .panel > *{ width:100%; }
-
-/* ---------- shared: intro heading above the team grid ---------- */
+/* ================= TEAM PAGE ================= */
 .team-head{
   max-width:1180px; margin:0 auto var(--sp-lg); width:100%;
 }
@@ -1085,7 +1326,7 @@
 }
 .carousel-card img{
   width:100%; 
-  aspect-ratio:3/4; 
+  aspect-ratio:1/1; 
   object-fit:cover;
   border-radius:var(--radius-md); 
   background:var(--mist);
@@ -1114,8 +1355,13 @@
 
 /* ---------- connect panel ---------- */
 .connect-grid{
-  display:grid; grid-template-columns:1.15fr .85fr; gap:6vw; align-items:start;
-  max-width:1180px; margin:0 auto; width:100%;
+  display:grid; 
+  grid-template-columns:1fr 1fr; 
+  gap:6vw; 
+  align-items:start;
+  max-width:1180px; 
+  margin:0 auto; 
+  width:100%;
 }
 .connect-title{ font-size:var(--fs-5xl); line-height:.98; margin-bottom:var(--sp-sm); }
 .connect-body{
@@ -1218,3 +1464,532 @@
 @media (prefers-reduced-motion: reduce){
   .founding-cta-arrow{ animation:none; }
 }
+
+/* ---------- Publications timeline ---------- */
+.pub-sticky-title{ text-align:center; }
+.pub-heading{
+  font-size:var(--fs-4xl);
+  line-height:1.05;
+}
+ 
+.pub-timeline{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:var(--sp-lg) var(--sp-xl);
+  max-width:1180px;
+  margin:0 auto;
+}
+.pub-entry{ min-width:0; }
+.pub-year-row{
+  display:flex;
+  align-items:center;
+  gap:var(--sp-sm);
+  margin-bottom:var(--sp-sm);
+}
+.pub-year{
+  font-size:var(--fs-2_5xl);
+  line-height:1;
+  color:var(--blue);
+  flex:none;
+}
+.pub-connector{
+  position:relative;
+  flex:1 1 auto;
+  min-width:16px;
+  height:2px;
+  background:var(--orange);
+}
+.pub-dot{
+  position:absolute;
+  right:-5px;
+  top:50%;
+  width:11px;
+  height:11px;
+  border-radius:50%;
+  background:var(--orange);
+  transform:translate(50%,-50%);
+}
+.pub-citation{
+  font-size:var(--fs-sm);
+  font-weight:700;
+  line-height:1.6;
+  color:var(--ink);
+  font-family:'Inter', sans-serif;
+}
+.pub-citation a{
+  text-decoration:underline;
+  text-underline-offset:2px;
+  transition:color .2s ease;
+}
+.pub-citation a:hover{ color:var(--blue); }
+ 
+@media (max-width:900px){
+  .pub-timeline{ grid-template-columns:1fr; max-width:520px; gap:var(--sp-lg); }
+  .pub-connector{ display:none; }
+}
+ 
+
+/* ==========================================================================
+   LAB LIFE PAGE (lablife.html)
+   ==========================================================================
+   Unlike every other page, this one is NOT a scroll-snap single-page-app
+   view — it's one continuously scrolling document. The bare `main{...}`
+   rule earlier in this file (height:100vh; overflow-y:scroll;
+   scroll-snap-type:y mandatory) is written as a plain element selector,
+   not scoped to #scrollContainer, so it would otherwise apply here too
+   and lock this page into the same 100vh-clipped behavior as the others.
+   These two overrides reset `main` back to normal document flow, scoped
+   to this page only via the body id — nothing else on the site is
+   affected. */
+body#lablife-page{
+  overflow:visible;   /* base body{} sets overflow:hidden; undo it here */
+  height:auto;
+}
+body#lablife-page main{
+  height:auto;
+  min-height:auto;
+  overflow:visible;
+  scroll-snap-type:none;
+}
+ 
+.lablife-wrap{
+  max-width:1180px;
+  margin:0 auto;
+  padding:calc(var(--header-h) + var(--sp-xl)) 4vw var(--sp-xl);
+}
+.lablife-title{
+  font-size:var(--fs-4xl);
+  color:var(--blue);
+  margin-top:var(--sp-lg);
+  margin-bottom:var(--sp-xl);
+  letter-spacing:-0.07em;
+  font-weight: 700;
+}
+ 
+.lablife-list{ display:flex; flex-direction:column; }
+.lablife-divider{
+  border:none;
+  border-top:1px solid var(--line);
+  margin:0;
+}
+.lablife-entry{
+  display:grid;
+  grid-template-columns:140px minmax(240px,360px) 1fr;
+  align-items:start;
+  gap:var(--sp-lg);
+  padding:var(--sp-lg) 0;
+}
+.lablife-date{
+  font-size:var(--fs-xl);
+  color:var(--ink);
+  padding-top:4px; /* optical alignment with the image's top edge */
+  letter-spacing:-0.07em;
+  font-weight: 700;
+}
+.lablife-image{
+  width:100%;
+  aspect-ratio:3/2;
+  object-fit:cover;
+  border-radius:10px;
+  background:var(--mist); /* visible placeholder if the src hasn't been swapped in yet */
+  display:block;
+}
+.lablife-heading{
+  font-size:var(--fs-2_5xl);
+  line-height:1.1;
+  margin-bottom:var(--sp-sm);
+  letter-spacing:-0.07em;
+  font-weight:700;
+}
+.lablife-body{
+  color:var(--slate);
+  font-size:var(--fs-sm);
+  line-height:1.7;
+  font-family:"Google Sans Flex", sans-serif;
+  font-optical-sizing:auto;
+  font-weight:400;
+  font-style:normal;
+  font-variation-settings:"slnt" 0,"wdth" 100,"GRAD" 0,"ROND" 0;
+}
+ 
+/* This page has no scroll-snap side-nav, so the shared .footer-note
+   (normally position:absolute, pinned to the bottom of a 100vh panel)
+   needs to behave like an ordinary block at the end of the document
+   instead — it isn't sitting inside a .panel here. */
+.lablife-footer{
+  position:static;
+  margin:0 8vw var(--sp-lg);
+  padding-top:var(--sp-lg);
+  padding-bottom:var(--sp-md);
+  /* border-top:1px solid var(--line); */
+}
+
+
+  /* ---------- responsive ---------- */
+  @media (max-width:900px){
+    .res-hero-grid, .res-error-grid{ 
+      grid-template-columns:1fr; 
+      gap:32px; 
+    }
+    .res-hero-grid > div:first-child{ 
+      text-align:center; 
+    }
+    .res-hero-grid .res-links-row{ 
+      justify-content:center; 
+    }
+    .res-tip-grid{ 
+      grid-template-columns:1fr; 
+      gap:36px; 
+    }
+    .res-brand-heading, .res-label-row{ 
+      flex-wrap:wrap; 
+    }
+
+    #we-are .grid, #why .grid, .contact-grid{ 
+      grid-template-columns:1fr; 
+      gap:36px; 
+    }
+    #we-are .grid{ 
+      text-align:center; 
+    }
+    .brain-graphic{ 
+      margin:0 auto; 
+    }
+    .stat-row{ 
+      justify-content:center; 
+    }
+    .team-grid{ 
+      grid-template-columns:repeat(2,1fr); 
+    }
+    .work-grid{ 
+      grid-template-columns:1fr 1fr; 
+    }
+    .affiliate-card{ 
+      grid-column:1/3; 
+      grid-row:auto;
+      min-height:auto; 
+    }
+    .wt2{ 
+      grid-column:1; 
+      grid-row:auto; 
+    }
+    .wt3{ 
+      grid-column:2; 
+      grid-row:2/4; 
+    }
+    .wt4{ 
+      grid-column:1; 
+      grid-row:auto; 
+    }
+    .footer-note{ 
+      display:none; 
+    }
+    .brand-icon{ 
+      height:56px; 
+    }
+    .hero-wrap .hero-image{ 
+      max-width:420px; 
+    }
+  }
+  @media (max-width:640px){
+    .side-nav{ 
+      display:none; 
+    }
+    section.panel{ 
+      padding:calc(var(--header-h) + var(--sp-md)) 6vw 40px; 
+    }
+    .team-grid{ 
+      grid-template-columns:1fr 1fr; 
+      gap:14px; 
+    }
+    .work-grid{ 
+      grid-template-columns:1fr; 
+    }
+    .affiliate-card{ 
+      grid-column:1; 
+    }
+    .wt2,.wt3,.wt4{ 
+      grid-column:1; 
+      grid-row:auto; 
+      min-height:130px; 
+    }
+    .research-row{ 
+      grid-template-columns:1fr; 
+      gap:10px; 
+    }
+    .research-row .arrow{ 
+      display:none; 
+    }
+    .pub-row{ 
+      grid-template-columns:1fr; 
+      gap:6px; 
+    }
+    .pub-row .yr{ 
+      order:-1; 
+    }
+    .nav-links a{ 
+      gap:10px; 
+    }
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation:none !important; transition:none !important; }
+  }
+
+
+ 
+/* ----------------------------------------------------------------------
+   RESPONSIVE
+   ----------------------------------------------------------------------
+   Three tiers, matching the breakpoints used everywhere else on the
+   site (900px, 640px):
+ 
+   Desktop  (>900px):  date | image | text, three columns side by side —
+                        the layout as designed.
+   Tablet   (641–900px): the fixed 140px + 360px-max columns don't leave
+                        enough room for the text column once you're
+                        under ~900px wide (140+240+two gaps already eats
+                        most of a tablet's width), so it drops to a
+                        single stacked column: date, then image, then
+                        heading + body. The image keeps a wider aspect
+                        ratio here since it now spans the full row width
+                        instead of a fixed 360px.
+   Mobile   (≤640px):  same stacked layout, just tighter side padding
+                        and a shorter image so it doesn't dominate a
+                        small screen.
+   ------------------------------------------------------------------- */
+@media (max-width:900px){
+  .lablife-entry{
+    grid-template-columns:1fr;
+    gap:var(--sp-sm);
+  }
+  .lablife-date{ padding-top:0; }
+  .lablife-image{ aspect-ratio:16/9; }
+}
+ 
+@media (max-width:640px){
+  .lablife-wrap{ padding-left:6vw; padding-right:6vw; }
+  .lablife-title{ letter-spacing:-0.04em; }
+  .lablife-date, .lablife-heading{ letter-spacing:-0.04em; }
+  .lablife-image{ aspect-ratio:4/3; border-radius:8px; }
+  .lablife-footer{ margin-left:6vw; margin-right:6vw; flex-direction:column; gap:4px; }
+}
+
+/* ==========================================================================
+   OUR CURRENT RESEARCH — auto-scrolling flyer carousel
+   Append this block to the end of styles.css. Reuses the existing tokens
+   (--fs-*, --sp-*, .display, .panel) already defined earlier in the file.
+   ========================================================================== */
+
+.research-heading{
+  font-size:var(--fs-4xl);
+  line-height:1.05;
+  text-align:center;
+  max-width:1180px;
+  margin:0 auto var(--sp-lg);
+  width:100%;
+}
+
+/* Full-bleed wrapper: escapes the panel's 8vw side padding so the first
+   and last cards can run to the edge of the viewport, same "bleed"
+   technique used elsewhere on the site (e.g. the Team page carousel). */
+.research-carousel{
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+  overflow-x:auto;
+  overflow-y:hidden;
+  -webkit-overflow-scrolling:touch;
+  cursor:grab;
+  /* Scroll position here is driven by JS (plus optional manual swipe/
+     drag), not meant to be read as a normal scrollbar — hide it. */
+  scrollbar-width:none;
+  -ms-overflow-style:none;
+}
+.research-carousel::-webkit-scrollbar{ display:none; }
+.research-carousel:active{ cursor:grabbing; }
+
+.research-track{
+  display:flex;
+  gap:var(--sp-lg);
+  width:max-content;
+  padding:0 8vw;
+}
+
+.research-card{
+  flex:0 0 auto;
+  width:min(60vw, 260px);
+}
+.research-card img{
+  display:block;
+  width:100%;
+  height:auto;
+  /* border-radius:var(--radius-md, 16px);
+  box-shadow:0 10px 30px rgba(10,10,12,.14); */
+}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .research-card{ width:min(66vw, 230px); }
+}
+@media (max-width:640px){
+  .research-heading{ font-size:var(--fs-3xl); }
+  .research-track{ gap:var(--sp-sm); }
+  .research-card{ width:min(74vw, 200px); }
+}
+
+
+
+/* -- 01 "How Did It Started?" hero: full-bleed photo with overlaid text -- */
+.story-hero-wrap{
+  position:relative;
+  width:100%;
+  max-width:1180px;
+  margin:0 auto;
+  min-height:min(74vh, 620px);
+  /* border-radius:24px; */
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.story-hero-wrap img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:0;
+}
+/* Dark gradient over the photo so the white text stays legible
+   regardless of what's in the underlying image. */
+.story-hero-wrap::after{
+  content:'';
+  position:absolute; inset:0;
+  background:linear-gradient(rgba(10,10,12,.6), rgba(10,10,12,.7));
+  z-index:1;
+}
+.story-hero-content{
+  position:relative; z-index:2;
+  color:#fff;
+  text-align:center;
+  max-width:760px;
+  /* padding:var(--sp-lg) 6vw; */
+}
+.story-hero-title{
+  font-size:var(--fs-3xl);
+  line-height:1.05;
+  margin-bottom:var(--sp-lg);
+  letter-spacing:-0.06em;
+}
+.story-hero-date{
+  font-size:var(--fs-md);
+  font-weight:600;
+  margin-bottom:var(--sp-sm);
+  font-family:"Google Sans Flex", sans-serif;
+  font-optical-sizing:auto; font-weight:400; font-style:normal;
+  font-variation-settings:"slnt" 0,"wdth" 100,"GRAD" 0,"ROND" 0;
+}
+.story-hero-body{
+  font-size:var(--fs-md);
+  line-height:1.6;
+  margin-bottom:var(--sp-sm);
+  font-family:"Google Sans Flex", sans-serif;
+  font-optical-sizing:auto; font-weight:400; font-style:normal;
+  font-variation-settings:"slnt" 0,"wdth" 100,"GRAD" 0,"ROND" 0;
+}
+.story-hero-body:last-child{ margin-bottom:0; }
+
+/* -- 02 "1st gen RAs": full-width banner photo, heading + justified body -- */
+.story-banner{
+  width:100%;
+  max-width:1180px;
+  margin:0 auto var(--sp-lg);
+  aspect-ratio:3/0.7;
+  object-fit:cover;
+  display:block;
+  background:var(--mist); /* visible fallback if the src hasn't been swapped in yet */
+}
+.story-heading{
+  font-size:var(--fs-3xl);
+  line-height:1.05;
+  margin-bottom:var(--sp-sm);
+  letter-spacing:-0.06em;
+  max-width:1180px;
+  margin-left:auto; margin-right:auto;
+  width:100%;
+}
+.story-body{
+  font-size:var(--fs-md);
+  line-height:1.4;
+  text-align:justify;
+  max-width:1180px;
+  margin:0 auto;
+  color:var(--ink);
+  font-family:"Google Sans Flex", sans-serif;
+  font-optical-sizing:auto; font-weight:400; font-style:normal;
+  font-variation-settings:"slnt" 0,"wdth" 100,"GRAD" 0,"ROND" 0;
+}
+
+/* -- 03/04 "The Baby RAs" / "Recruiting 3rd gen RAs": two-column split -- */
+.story-split{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:6vw;
+  align-items:center;
+  max-width:1180px;
+  margin:0 auto;
+  width:100%;
+}
+.story-split-image{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  /* border-radius:var(--radius-md, 16px); */
+  background:var(--mist);
+  display:block;
+}
+.story-split-heading{
+  font-size:var(--fs-3xl);
+  line-height:1.05;
+  margin-bottom:var(--sp-lg);
+  letter-spacing:-0.06em;
+}
+.story-split-body{
+  font-size:var(--fs-md);
+  line-height:1.5;
+  color:var(--ink);
+  margin-bottom:var(--sp-sm);
+  font-family:"Google Sans Flex", sans-serif;
+  font-optical-sizing:auto; font-weight:400; font-style:normal;
+  font-variation-settings:"slnt" 0,"wdth" 100,"GRAD" 0,"ROND" 0;
+}
+.story-split-body:last-child{ margin-bottom:0; }
+
+@media (max-width:900px){
+  .story-split{ grid-template-columns:1fr; gap:32px; text-align:left; }
+  .story-hero-wrap{ border-radius:16px; min-height:min(80vh, 560px); }
+  .story-banner{ aspect-ratio:16/10; }
+
+  .story-hero-content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    text-align: center;
+    max-width: 760px;
+    padding: var(--sp-lg) 6vw;
+  }
+}
+@media (max-width:640px){
+  .story-hero-title{ font-size:var(--fs-2_5xl); }
+  .story-heading, .story-split-heading{ font-size:var(--fs-2_5xl); }
+  .story-body{ text-align:left; }
+
+  .story-hero-content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    text-align: center;
+    max-width: 760px;
+    padding: var(--sp-lg) 6vw;
+  }
+}
+
