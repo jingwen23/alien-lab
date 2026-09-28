@@ -1518,6 +1518,12 @@
     font-size:var(--fs-sm); 
     color:var(--ink); 
   }
+  .connect-grid-protip{ 
+    margin-top:16px; 
+    font-size:var(--fs-md); 
+    color:var(--ink); 
+    line-height: 1.6;
+  }
   .res-examples{ 
     margin-top:18px; 
   }
