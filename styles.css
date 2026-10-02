@@ -1343,6 +1343,11 @@
   transform:translateY(-3px); 
 }
 
+.pub-citation .apa-journal,
+.pub-citation .apa-volume {
+  font-style: italic;
+}
+
 /* ---------- responsive ---------- */
 @media (max-width:900px){
   .resource-grid{ grid-template-columns:repeat(2, 1fr); }
