@@ -1279,7 +1279,11 @@
 }
 
 .resource-card-image-1{
-  background-image: url('/assets/lit-review-slide-cover.png');
+  background-image: url('assets/lit-review-slide-cover.png');
+}
+
+.resource-card-image-2{
+  background-image: url('assets/mapsa-cover.png');
 }
 
 .resource-card-body{
