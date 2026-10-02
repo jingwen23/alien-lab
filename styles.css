@@ -1345,7 +1345,7 @@
 
 .pub-citation .apa-journal,
 .pub-citation .apa-volume {
-  font-style: italic;
+  font-style: italic !important;
 }
 
 /* ---------- responsive ---------- */
