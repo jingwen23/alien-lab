@@ -414,6 +414,28 @@
     justify-content:center; 
     animation:bob 1.8s ease-in-out infinite;
   }
+  #logo-intro {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  #logo-intro .hero-wrap {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  #logo-intro .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+  }
+
+
   /* ---------- We Are ---------- */
   #we-are .grid{
     display:grid; 
