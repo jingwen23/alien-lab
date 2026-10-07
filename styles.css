@@ -428,6 +428,11 @@
       align-items: center;
   }
 
+  #logo-intro .hero-wrap .hero-image {
+    width: 100%;
+    max-width: 1020px;
+  }
+
   #logo-intro .hero-image {
       width: 100%;
       height: 100%;
