@@ -1060,27 +1060,43 @@
     font-family:"Google Sans Flex", sans-serif; font-weight:400;
   }
 
-  .vacancy-list {
-    position: relative;
-}
+  /* Two columns */
+  #vacancies .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+  }
 
-  .vacancy-overlay {
+  /* Right-hand column */
+  #vacancies .vacancy-list {
+      position: relative;
+  }
+
+  /* Overlay only covers the job listings */
+  #vacancies .vacancy-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(104, 119, 143, 0.75);
+      background: rgba(240, 241, 243, 0.75);
       display: flex;
       align-items: center;
       justify-content: center;
-
       z-index: 10;
   }
 
-  .vacancy-overlay span {
-      font-family: inherit;
-      font-size: 1.5rem;
+  /* Overlay text */
+  #vacancies .vacancy-overlay span {
+      font-size: var(--fs-2_5xl);
       font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       text-align: center;
   }
+
+  #vacancies .reason {
+      color: #aaa;
+  }
+
   /* ---------- Let's Connect ---------- */
   .connect-grid{
     display:grid; 
