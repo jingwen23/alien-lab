@@ -1086,7 +1086,7 @@
 
   /* Overlay text */
   #vacancies .vacancy-overlay span {
-      font-size: var(--fs-2_5xl);
+      font-size: var(--fs-3xl);
       font-weight: 600;
       text-align: center;
       letter-spacing: -0.06em;
