@@ -1059,6 +1059,28 @@
     font-size:var(--fs-sm); color:var(--slate);
     font-family:"Google Sans Flex", sans-serif; font-weight:400;
   }
+
+  .vacancy-list {
+    position: relative;
+}
+
+  .vacancy-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(104, 119, 143, 0.75);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      z-index: 10;
+  }
+
+  .vacancy-overlay span {
+      font-family: inherit;
+      font-size: 1.5rem;
+      font-weight: 600;
+      text-align: center;
+  }
   /* ---------- Let's Connect ---------- */
   .connect-grid{
     display:grid; 
