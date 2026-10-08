@@ -1074,7 +1074,7 @@
   }
 
   /* Overlay only covers the job listings */
-  #vacancies .vacancy-overlay {
+  /* #vacancies .vacancy-overlay {
       position: absolute;
       inset: 0;
       background: rgba(240, 241, 243, 0.75);
@@ -1082,7 +1082,7 @@
       align-items: center;
       justify-content: center;
       z-index: 10;
-  }
+  } */
 
   /* Overlay text */
   #vacancies .vacancy-overlay span {
@@ -1092,8 +1092,12 @@
       letter-spacing: -0.06em;
   }
 
-  #vacancies .reason, #vacancies .reason h4, #vacancies .reason p {
-    color: #f0f1f3;
+  #vacancies .reason, #vacancies .reason h4, #vacancies .reason p, .reason .num {
+    color: #e0e3e8;
+  }
+
+  .reason .num {
+    color: #e0e3e8;
   }
 
   /* ---------- Let's Connect ---------- */
