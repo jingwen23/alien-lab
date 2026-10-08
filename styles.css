@@ -1063,7 +1063,7 @@
   /* Two columns */
   #vacancies .grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1.5fr;
       gap: 60px;
       align-items: start;
   }
@@ -1088,13 +1088,12 @@
   #vacancies .vacancy-overlay span {
       font-size: var(--fs-2_5xl);
       font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
       text-align: center;
+      letter-spacing: -0.06em;
   }
 
-  #vacancies .reason {
-      color: #aaa;
+  #vacancies .reason, #vacancies .reason h4, #vacancies .reason p {
+    color: #f0f1f3;
   }
 
   /* ---------- Let's Connect ---------- */
