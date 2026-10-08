@@ -1074,15 +1074,15 @@
   }
 
   /* Overlay only covers the job listings */
-  /* #vacancies .vacancy-overlay {
+  #vacancies .vacancy-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(240, 241, 243, 0.75);
+      /* background: rgba(240, 241, 243, 0.75); */
       display: flex;
       align-items: center;
       justify-content: center;
       z-index: 10;
-  } */
+  }
 
   /* Overlay text */
   #vacancies .vacancy-overlay span {
@@ -1096,7 +1096,7 @@
     color: #e0e3e8;
   }
 
-  .reason .num {
+  #vacancies .reason .num {
     color: #e0e3e8;
   }
 
